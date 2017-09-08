@@ -14,42 +14,42 @@ app.get('/', (req, res) => {
 
 })
 
-app.get('/signup', (req, res) => {
-    res.sendFile(__dirname + '/signup.html');
-})
+// app.get('/signup', (req, res) => {
+//     res.sendFile(__dirname + '/signup.html');
+// })
 
 
-app.post('/signup', (req, res) => {
-    console.log(req.body.username, req.body.password);
-    var username = req.body.username;
-    var password = req.body.password;
+// app.post('/signup', (req, res) => {
+//     console.log(req.body.username, req.body.password);
+//     var username = req.body.username;
+//     var password = req.body.password;
 
 
-    User.findOne({ username: username })
-        .exec(function (err, found) {
-            if (!found) {
-                let user = new User({
-                    username: username,
-                    password: password
-                });
-                user.save((err, success) => {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log('Welcome to the Game')
-                        res.redirect('/')
-                    }
+//     User.findOne({ username: username })
+//         .exec(function (err, found) {
+//             if (!found) {
+//                 let user = new User({
+//                     username: username,
+//                     password: password
+//                 });
+//                 user.save((err, success) => {
+//                     if (err) {
+//                         console.log(err);
+//                     } else {
+//                         console.log('Welcome to the Game')
+//                         res.redirect('/')
+//                     }
 
-                })
-            } else {
+//                 })
+//             } else {
 
-                console.log('username taken, choose another');
-                res.redirect('/signup')
+//                 console.log('username taken, choose another');
+//                 res.redirect('/signup')
 
-            }
-        });
+//             }
+//         });
 
-});
+// });
 
 app.post('/answer', (req, res) => {
     console.log(req.body.answer);
