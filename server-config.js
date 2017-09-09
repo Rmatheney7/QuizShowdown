@@ -28,15 +28,19 @@ app.get('/signup', (req, res) => {
     res.render('signup.ejs');
 })
 
-app.get('/leaderboard', (req, res) => {
+app.get('/leaderBoard', (req, res) => {
     User.find().sort('username').exec(function(err, users){
         if(err){
             console.log(err)
         } else {
-            res.json(users)
+            var stats = users.reduce(function(a, b){
+                a.push('UserName ' +  b.username  + " Number of Questions " + b.totalQuestions + "Questions Correct " + b.questionsRight +  " Number of Challenges " + b.showDowns  )
+                return a;
+
+            }, [])
         }
        
-        
+        res.send(stats)
 
     })
 })
@@ -80,7 +84,8 @@ app.post('/signup', (req, res, done) => {
 });
 
 app.post('/answer', (req, res) => {
-    console.log(req.body.answer);
+    res.render('/');
+    
 
 
 

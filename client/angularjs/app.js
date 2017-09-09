@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']).
+var myApp = angular.module('myApp', ['ngRoute', "ngResource"]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     $routeProvider.when('/', {templateUrl: 'partials/answerBox.ejs', controller: 'homeController'});
     $routeProvider.when('/leaderBoard', {templateUrl: 'partials/leaderBoard.ejs', controller: 'homeController'});

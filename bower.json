@@ -11,7 +11,8 @@
     "angular": "angularjs#^1.6.6",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
-    "angular-route": "^1.6.6"
+    "angular-route": "^1.6.6",
+    "angular-resource": "^1.6.6"
   },
   "install": {
     "path": "client/libs"
