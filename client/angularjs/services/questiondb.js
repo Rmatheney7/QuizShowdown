@@ -1,13 +1,13 @@
-angular.module('app')
+angular.module('quizApp')
 
 .service('trivia', function($http, $window) {
-    this.search = function(query, callback) {
+   
       $http.get('https://opentdb.com/api.php?amount=10', {
       
       })
       .then(function({data}) {
         if (callback) {
-          callback(data.items);
+          console.log(data.items);
         }
       })
       .catch(function({data}) {
@@ -15,6 +15,6 @@ angular.module('app')
           console.error(err.message);
         });
       });
-    };
-  });
+    });
+ 
   
