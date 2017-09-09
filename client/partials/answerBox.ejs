@@ -1,0 +1,32 @@
+<h3> Start New Game</h3>
+<div>
+
+
+
+    <div ng-controller="homeController">
+        <div>
+            Quiz Topics:
+            <select ng-model="cart.Topics" ng-options="state as state.name for state in shelf"></select>
+            <br/>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <form action="">
+        <input type="radio" name="difficulty" value="Easy"> Easy<br>
+        <input type="radio" name="difficulty" value="Medium"> Medium<br>
+        <input type="radio" name="difficulty" value="Hard"> Hard<br>
+    </form>
+</div>
+
+
+
+
+</div>
+<form action='/answer' method='POST'>
+
+    <button type="button" ng-click="solo()">Take on the world</button>
+    <button type="button" ng-click="challenge()"> Take a friend down a peg</button>
+</form>

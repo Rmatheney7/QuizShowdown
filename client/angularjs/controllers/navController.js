@@ -1,1 +1,0 @@
-myApp.controller('navController',['$scope', '$location'])
