@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='app'>
     <head>
         <title></title>
         <meta charset="UTF-8">
@@ -7,12 +7,16 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+
+        <div ng-controller="ctrl">
+
+        </div>
         <form action='/answer' method='POST'>
             <input type='text' placeholder="Your Answer" name='answer'>
             <button type="submit">Submit</button>
         </form>
         
         
-    
+    <script>src="app.js"</script>
     </body>
 </html>

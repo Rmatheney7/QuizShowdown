@@ -1,0 +1,10 @@
+{
+  "name": "quizshowdown",
+  "description": "Quiz Showdown",
+  "main": "index.js",
+  "authors": [
+    "rmatheney7 <rmatheney7@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Rmatheney7/QuizShowdown"
+}
