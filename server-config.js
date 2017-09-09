@@ -4,8 +4,14 @@ const mongoose = require('mongoose');
 const db = require('./dbConfig.js');
 const User = require('./user.js');
 const Promise = require('bluebird');
+const path = require('path');
+
+
 
 const app = express();
+
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
