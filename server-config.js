@@ -4,31 +4,43 @@ const mongoose = require('mongoose');
 const db = require('./dbConfig.js');
 const User = require('./user.js');
 const Promise = require('bluebird');
+const path = require('path');
 
 const app = express();
 
+
+app.set('view engine', 'ejs');
+app.set('views', path.resolve(__dirname, 'client', 'views') )
+app.use(express.static(path.resolve(__dirname, 'client')))
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+
+   // res.sendFile(__dirname + '/index.html')
+   res.render('index.ejs')
+  
+     
 
 })
 
 app.get('/signup', (req, res) => {
-    res.sendFile(__dirname + '/signup.html');
+    res.render('signup.ejs');
 })
 
 app.get('/leaderboard', (req, res) => {
     User.find().sort('username').exec(function(err, users){
         for(var i = 0; i< users.length; i++){
             console.log(users[i].username, users[i].questionsRight);
+            res.end();
         }
 
     })
 })
 
 
-app.post('/signup', (req, res) => {
+
+app.post('/signup', (req, res, done) => {
     console.log(req.body.username, req.body.password);
     var username = req.body.username;
     var password = req.body.password;
@@ -46,14 +58,15 @@ app.post('/signup', (req, res) => {
                         console.log(err);
                     } else {
                         console.log('Welcome to the Game')
-                        res.redirect('/')
+                        res.redirect('/retry')
+                        
                     }
 
                 })
             } else {
 
-                console.log('username taken, choose another');
-                res.redirect('/signup')
+           console.log('try again')
+           res.redirect('/retry');
 
             }
         });

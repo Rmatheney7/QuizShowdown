@@ -2,9 +2,9 @@
   "name": "quizshowdown",
   "version": "1.0.0",
   "description": "Quiz Showdown",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,9 +22,13 @@
   },
   "homepage": "https://github.com/Rmatheney7/QuizShowdown#readme",
   "dependencies": {
+    "angular-route": "^1.6.6",
     "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
     "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "foreman": "2.0.0",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.10"
