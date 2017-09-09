@@ -30,20 +30,24 @@ app.get('/signup', (req, res) => {
 
 app.get('/leaderboard', (req, res) => {
     User.find().sort('username').exec(function(err, users){
-        let list ='';
-        for(var i = 0; i< users.length; i++){
-            list += (users[i].username, users[i].questionsRight);
-            
+        if(err){
+            console.log(err)
+        } else {
+            res.json(users)
         }
-        res.render(list);
+       
+        
 
     })
+})
+
+app.get('https://opentdb.com/api.php?amount=10', (req, res) => {
+    console.log(req.body)
 })
 
 
 
 app.post('/signup', (req, res, done) => {
-    console.log(req.body.username, req.body.password);
     var username = req.body.username;
     var password = req.body.password;
 
@@ -60,14 +64,14 @@ app.post('/signup', (req, res, done) => {
                         console.log(err);
                     } else {
                         console.log('Welcome to the Game')
-                        res.render('/partials/retry.ejs');
+                        res.redirect('/');
                         
                     }
 
                 })
             } else {
 
-           console.log('try again')
+          
            res.redirect('/retry');
 
             }

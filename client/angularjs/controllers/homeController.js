@@ -1,3 +1,3 @@
-app.controller('homeController',['$scope', function($scope){
+quizApp.controller('homeController',['$scope', function($scope){
 
 }]);

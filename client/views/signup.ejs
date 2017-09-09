@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="quizApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-
+    <div class="container">
+        <div ng-view></div>
+    </div>
     <form action='/signup' method='POST'>
         Username:
         <input type='text' name='username'>
@@ -17,10 +19,8 @@
     
     </form>
 
-    <div class="container">
-        <div ng-view></div>
-    </div>
-
+   
+    <link href="/libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <script type="text/javascript" src="libs/angular/angular.js"></script>
     <script type="text/javascript" src="libs/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="angularjs/app.js"></script>
