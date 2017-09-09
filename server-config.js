@@ -18,6 +18,15 @@ app.get('/signup', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 })
 
+app.get('/leaderboard', (req, res) => {
+    User.find().sort('username').exec(function(err, users){
+        for(var i = 0; i< users.length; i++){
+            console.log(users[i].username, users[i].questionsRight);
+        }
+
+    })
+})
+
 
 app.post('/signup', (req, res) => {
     console.log(req.body.username, req.body.password);

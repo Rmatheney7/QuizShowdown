@@ -1,0 +1,15 @@
+{
+  "name": "quizshowdown",
+  "description": "Quiz Showdown",
+  "main": "index.js",
+  "authors": [
+    "rmatheney7 <rmatheney7@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Rmatheney7/QuizShowdown",
+  "dependencies": {
+    "angular": "angularjs#^1.6.6",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
