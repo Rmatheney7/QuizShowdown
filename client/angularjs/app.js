@@ -1,7 +1,7 @@
-var app = angular.module('app', ['ngRoute']).
-config(['$routeProvider', '$locationProveider', function($routeProvider, $locatonProvider){
-    $routeProvider.when('/retry', {templateUri: '/partials/retry.ejs', controller: '/controllers/homeController'});
-    $routeProvider.otherwise({redirecTo: '/retry'});
+var app = angular.module('app', ['ngRoute', db]).
+config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+    $routeProvider.when('/retry', {templateUrl: '/partials/retry.ejs', controller: 'homeController'});
+    $routeProvider.otherwise({redirectTo: '/retry'});
 
-    $locatonProvider.html5Mode({enabled: true,requireBase: false});
+    $locationProvider.html5Mode({enabled: true,requireBase: false});
 }])

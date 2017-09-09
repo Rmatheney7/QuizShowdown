@@ -30,10 +30,12 @@ app.get('/signup', (req, res) => {
 
 app.get('/leaderboard', (req, res) => {
     User.find().sort('username').exec(function(err, users){
+        let list ='';
         for(var i = 0; i< users.length; i++){
-            console.log(users[i].username, users[i].questionsRight);
-            res.end();
+            list += (users[i].username, users[i].questionsRight);
+            
         }
+        res.render(list);
 
     })
 })
@@ -58,7 +60,7 @@ app.post('/signup', (req, res, done) => {
                         console.log(err);
                     } else {
                         console.log('Welcome to the Game')
-                        res.redirect('/retry')
+                        res.render('/partials/retry.ejs');
                         
                     }
 
