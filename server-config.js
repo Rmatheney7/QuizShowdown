@@ -28,22 +28,22 @@ app.get('/signup', (req, res) => {
     res.render('signup.ejs');
 })
 
-app.get('/leaderBoard', (req, res) => {
-    User.find().sort('username').exec(function(err, users){
-        if(err){
-            console.log(err)
-        } else {
-            var stats = users.reduce(function(a, b){
-                a.push('UserName ' +  b.username  + " Number of Questions " + b.totalQuestions + "Questions Correct " + b.questionsRight +  " Number of Challenges " + b.showDowns  )
-                return a;
+// app.get('/leaderBoard', (req, res) => {
+//     User.find().sort('username').exec(function(err, users){
+//         if(err){
+//             console.log(err)
+//         } else {
+//             var stats = users.reduce(function(a, b){
+//                 a.push('UserName ' +  b.username  + " Number of Questions " + b.totalQuestions + "Questions Correct " + b.questionsRight +  " Number of Challenges " + b.showDowns  )
+//                 return a;
 
-            }, [])
-        }
+//             }, [])
+//         }
        
-        res.send(stats)
+//         res.send(stats)
 
-    })
-})
+//     })
+// })
 
 
 
@@ -85,17 +85,7 @@ app.get('/answer', (req, res) => {
     app.get('https://opentdb.com/api.php?', (req, res) => {
         console.log(req.body)
     })
-    
-
     res.render('/quiz.ejs');
-
-
-
-
-
-
-
-
 
 })
 

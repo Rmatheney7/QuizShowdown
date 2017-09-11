@@ -1,6 +1,6 @@
 angular.module('quizShowdown')
 
-.controller('indexCtrl', function(trivia) {
+.controller('indexCtrl', function($scope, trivia) {
 
   this.returnQuestions = trivia;
   this.count = 0;
@@ -20,13 +20,15 @@ angular.module('quizShowdown')
       cb();
     }
   };
+
+
   //this.trivia.search(this.query, this.quiz);
 })
 
-/*
+
 .component('app', {
 
-  controller: 'AppCtrl',
-  templateUrl: 'src/templates/app.html'
+  controller: 'indexCtrl',
+  templateUrl: 'partials/index.html'
   });
-*/
+

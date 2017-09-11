@@ -1,6 +1,6 @@
 angular.module('quizShowdown')
 
-.controller('leaderboard', function(trivia) {
+.controller('leaderBoardCtrl', function($scope) {
 
 
 })

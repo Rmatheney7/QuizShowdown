@@ -1,15 +1,20 @@
 
 myApp.controller('homeController',['$scope', '$http', '$log', 'Question', function ($scope, $http, $log, Question) {
     $scope.solo = function () {
-        console.log('solo');
+        console.log($scope.score);
     }
+
+    $scope.score = 0;
 
     $scope.challenge = function () {
-        console.log('challenge accepted');
+        $scope.score++;
+        //console.log(5)
     }
 
+    //$scope.questions = 5;
 
-      $scope.create = function () {
+
+    $scope.create = function () {
             $http.get("https://opentdb.com/api.php", {
                 params: {
                     amount: 12,
@@ -20,33 +25,15 @@ myApp.controller('homeController',['$scope', '$http', '$log', 'Question', functi
             })
                 .then(function (response) {
                     $scope.questions = response.data.results
-                    console.log($scope.questions)
+                    $scope.questions
                     // response('/quiz.ejs')
                     
                 });
         
 
-
-
-
-        // var quizQuestion = new Question({
-        //     question: $scope.questions.question,
-        //     category: $scope.questions.category,
-        //     difficulty: $scope.questions.difficulty,
-        //     correct_answer: $scope.questions.correct_answer,
-        //     incorrect_answer: [$scope.questions.incorrect_answer]
-
-        // });
-       
-
-        // quizQuestion.$save(function (response) {
-
-            
-        // }, function (errorResponse) {
-
-        //     $scope.error = errorResponse.data.message;
-        // });
     };
+
+$scope.test = $scope.create();
     
 
     $scope.shelf = [{
@@ -135,42 +122,8 @@ myApp.controller('homeController',['$scope', '$http', '$log', 'Question', functi
         
     };
 
+}])
 
 
 
-
-
-
-
-}]);
-
-
-
-// $http.get("https://opentdb.com/api.php?", {
-//     params: {
-//         amount: 10,
-//         category: 15,
-//         difficulty: 'medium',
-//         type: 'multiple'
-//     }
-// })
-//     .then(function (response) {
-
-//         $scope.data = response.data;
-//         let question = response.data.question;
-//         let category = response.data.category;
-//         let correct_answer = response.data.correct_answer;
-//         let incorrect_answer = response.data.incorrect_answer;
-//         let difficulty = response.data.difficulty;
-
-//         //console.log(response.data.results);
-
-//         response.data.results.forEach(function(element) {
-//             //create new questions 
-//             console.log(element);
-
-
-//         });
-
-//     })
 
