@@ -45,9 +45,6 @@ app.get('/leaderBoard', (req, res) => {
     })
 })
 
-app.get('https://opentdb.com/api.php?amount=10', (req, res) => {
-    console.log(req.body)
-})
 
 
 
@@ -83,9 +80,15 @@ app.post('/signup', (req, res, done) => {
 
 });
 
-app.post('/answer', (req, res) => {
-    res.render('/');
+app.get('/answer', (req, res) => {
+
+    app.get('https://opentdb.com/api.php?', (req, res) => {
+        console.log(req.body)
+    })
     
+
+    res.render('/quiz.ejs');
+
 
 
 

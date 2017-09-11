@@ -9,6 +9,6 @@ var questionSchema = mongoose.Schema({
 
 })
 
-Question = mongoose.model('Question', questionSchema)
+Questions = mongoose.model('Question', questionSchema)
 
-module.exports =  Question;
+module.exports =  Questions;
